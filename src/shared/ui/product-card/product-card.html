@@ -1,0 +1,19 @@
+<div class="card">
+  <!-- <div class="badge" *ngIf="product.isNew">Новинка</div> -->
+  
+  <div class="image-container">
+    <img [src]="product.imageUrl" [alt]="product.name">
+  </div>
+
+  <div class="content">
+    <h3 class="title">{{ product.name }}</h3>
+    <p class="description">{{ product.description }}</p>
+    
+    <div class="footer">
+      <span class="price">{{ product.price }} ₽</span>
+      <button class="buy-btn">
+        <span>+</span>
+      </button>
+    </div>
+  </div>
+</div>

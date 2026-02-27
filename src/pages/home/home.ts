@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ProductList } from "../../shared/ui/product-list/product-list";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, ProductList],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
