@@ -1,0 +1,35 @@
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">Новинка: Малиновый трюфель</span>
+    <h1>
+      Торты, которые <br />
+      <span>влюбляют</span> в себя
+    </h1>
+    <p>Ручная работа, натуральные ягоды и доставка за 2 часа до вашей двери.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" routerLink="/catalog">Выбрать торт</button>
+      <button class="btn-secondary">Узнать о начинках</button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="image-circle"></div>
+    <img src="images/cake.png" alt="Главный торт" />
+  </div>
+</section>
+
+<section class="categories">
+  <div class="section-header">
+    <h2>Популярные категории</h2>
+    <a routerLink="/catalog" class="view-all">Смотреть всё →</a>
+  </div>
+
+  <div class="category-grid">
+    <div class="cat-card" *ngFor="let cat of categories">
+      <div class="cat-icon">
+        <img [src]="cat.icon" [alt]="cat.name" class="category-img" />
+      </div>
+      <h3>{{ cat.name }}</h3>
+      <p>{{ cat.count }} товаров</p>
+    </div>
+  </div>
+</section>
