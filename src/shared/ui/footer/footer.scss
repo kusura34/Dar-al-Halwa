@@ -139,6 +139,13 @@ $dark-berry: #590D22;
   font-size: 0.85rem;
   color: rgba(white, 0.5);
 
+.admin-link {
+  font-size: 10px;
+  color: rgba(white, 0.5);
+  text-decoration: none;
+  &:hover { color: #C9184A; }
+}
+
   @media (max-width: 600px) {
     flex-direction: column;
     text-align: center;

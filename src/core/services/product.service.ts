@@ -1,14 +1,20 @@
 import { inject, Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  collectionData,
+  deleteDoc,
+  doc,
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from '../../shared/models/product-model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
-
-private firestore: Firestore = inject(Firestore)
+  private firestore: Firestore = inject(Firestore);
 
   getProducts(): Observable<Product[]> {
     const productsRef = collection(this.firestore, 'products');
@@ -19,7 +25,12 @@ private firestore: Firestore = inject(Firestore)
     const productsRef = collection(this.firestore, 'products');
     return await addDoc(productsRef, {
       ...product,
-      createdAt: new Date()
+      createdAt: new Date(),
     });
+  }
+
+  deleteProduct(id: string) {
+    const docRef = doc(this.firestore, `products/${id}`);
+    return deleteDoc(docRef);
   }
 }

@@ -1,1 +1,32 @@
-<p>admin-layout works!</p>
+<div class="admin-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <span class="logo">Dar <span>al-Halva</span></span>
+    </div>
+    <div class="navigation">
+      <nav class="sidebar-nav">
+        <a class="nav-item">
+          <i class="icon"><img src="icons/analytics.svg" alt="" /></i> Дашборд
+        </a>
+        <a routerLink="products" class="nav-item">
+          <i class="icon"><img style="width: 20px" src="cakeicon.svg" alt="" /></i> Товары
+        </a>
+        <a routerLink="/" class="nav-item back-site">
+          <i class="icon"><img src="icons/home.svg" alt="" /></i> На сайт
+        </a>
+      </nav>
+      <a class="logout" (click)="logout()" routerLink="">Выйти</a>
+    </div>
+  </aside>
+
+  <main class="admin-content">
+    <header class="content-header">
+      <h1>Панель управления</h1>
+      <div class="user-info">Администратор</div>
+    </header>
+
+    <div class="page-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product-model';
 import { Observable } from 'rxjs';
-import { ProductsService } from '../../../core/services/product';
+import { ProductsService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { ProductCard } from "../product-card/product-card";
 
@@ -19,18 +19,4 @@ export class ProductList {
   constructor(private productsService: ProductsService) {
     this.products$ = this.productsService.getProducts();
   }
-
-  async addTestProduct() {
-  await this.productsService.addProduct({
-    name: 'Шоколадный торт',
-    description: 'Очень вкусный',
-    price: 1200,
-    category: 'cake',
-    imageUrl: 'images/cake.png',
-    weight: 1500,
-    isAvailable: true,
-    createdAt: new Date()
-  });
-  console.log('data added')
-}
 }

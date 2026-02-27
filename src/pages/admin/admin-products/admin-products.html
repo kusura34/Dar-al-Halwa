@@ -1,0 +1,30 @@
+<div class="admin-products">
+  <div class="header-actions">
+    <h2>Список товаров</h2>
+    <button class="btn-add" (click)="addTestProduct()">Добавить торт</button>
+  </div>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Фото</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Категория</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products$ | async">
+        <td><img [src]="product.imageUrl" width="50"></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }} ₽</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <button class="btn-edit">✏️</button>
+          <button class="btn-delete" (click)="deleteProduct(product.id)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
