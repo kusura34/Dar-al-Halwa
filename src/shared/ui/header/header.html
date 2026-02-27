@@ -1,1 +1,28 @@
-<p>header works!</p>
+<header class="main-header">
+  <div class="container">
+    <div class="logo">
+      <span class="logo-icon">🍰</span>
+      <span class="logo-text">Dar <span>al-Halva</span></span>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active">Каталог</a></li>
+        <li><a routerLink="/custom" routerLinkActive="active">Торт на заказ</a></li>
+        <li><a routerLink="/delivery" routerLinkActive="active">Доставка</a></li>
+        <li><a routerLink="/reviews" routerLinkActive="active">Отзывы</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" title="Поиск">
+        <i class="search-icon"><img src="/icons/search.svg" alt=""></i>
+      </button>
+      <button class="cart-btn">
+        <span class="cart-icon"><img src="/icons/cart.svg" alt=""></span>
+        <span class="cart-count">3</span>
+      </button>
+      <button class="order-btn">Заказать звонок</button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,147 @@
+$berry: #C9184A;
+$light-bg: #FFF0F3;
+$accent: #FFB3C1;
+$text: #2B2B2B;
+$dark-berry: #590D22;
+
+.main-footer {
+  background-color: $dark-berry;
+  color: white;
+  padding: 60px 0 20px;
+  margin-top: 50px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-section {
+  h4 {
+    color: $accent;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  p {
+    line-height: 1.6;
+    color: rgba(white, 0.8);
+    font-size: 0.95rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+      
+      a {
+        color: rgba(white, 0.8);
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+  }
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: white;
+  
+  span { color: $accent; }
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(white, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $berry;
+    }
+  }
+}
+
+.subscribe-form {
+  display: flex;
+  margin-top: 15px;
+
+  input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+
+  button {
+    background-color: $berry;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: $accent;
+      color: $dark-berry;
+    }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(white, 0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: rgba(white, 0.5);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

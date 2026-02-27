@@ -1,1 +1,51 @@
-<p>footer works!</p>
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      
+      <div class="footer-section about">
+        <h3 class="footer-logo">Dar <span>al-Halva</span></h3>
+        <p>Создаем моменты счастья с 2015 года. Только натуральные ингредиенты и щепотка любви в каждом кусочке.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">IG</a>
+          <a href="#" class="social-icon">VK</a>
+          <a href="#" class="social-icon">WA</a>
+        </div>
+      </div>
+
+      <div class="footer-section links">
+        <h4>Кондитерская</h4>
+        <ul>
+          <li><a routerLink="/catalog">Весь каталог</a></li>
+          <li><a routerLink="/bento">Бенто-торты</a></li>
+          <li><a routerLink="/wedding">Свадебные торты</a></li>
+          <li><a routerLink="/candy-bar">Кэнди-бар</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section links">
+        <h4>Покупателям</h4>
+        <ul>
+          <li><a routerLink="/delivery">Доставка и оплата</a></li>
+          <li><a routerLink="/faq">Вопросы и ответы</a></li>
+          <li><a routerLink="/contacts">Контакты</a></li>
+          <li><a routerLink="/policy">Приватность</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section newsletter">
+        <h4>Сладкие новости</h4>
+        <p>Подпишитесь, чтобы получать скидки на праздники.</p>
+        <form class="subscribe-form" (submit)="$event.preventDefault()">
+          <input type="email" placeholder="Ваш e-mail">
+          <button type="submit">OK</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 BerryCakes. Все права защищены.</p>
+      <p>Сделано с ❤️ для любителей сладкого</p>
+    </div>
+  </div>
+</footer>
