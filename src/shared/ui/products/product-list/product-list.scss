@@ -1,7 +1,7 @@
 .products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 92vw;
-    margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  width: min(1400px, 92vw);
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(240px, 30vw, 320px), 1fr));
 }
