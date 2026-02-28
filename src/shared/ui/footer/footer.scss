@@ -144,6 +144,22 @@ $dark-berry: #590D22;
   font-size: 0.85rem;
   color: rgba(white, 0.5);
 
+  .admin-link {
+    color: rgba(white, 0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+   @media (max-width: 600px) {
+     flex-direction: column;
+     text-align: center;
+   }
+
   @media (max-width: 600px) {
     flex-direction: column;
     text-align: center;
