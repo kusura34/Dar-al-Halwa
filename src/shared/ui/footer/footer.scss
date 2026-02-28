@@ -23,12 +23,14 @@ $dark-berry: #590D22;
   gap: 40px;
   margin-bottom: 40px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
   }
-  
-  @media (max-width: 480px) {
+
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 }
 
@@ -135,20 +137,63 @@ $dark-berry: #590D22;
   border-top: 1px solid rgba(white, 0.1);
   padding-top: 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
   font-size: 0.85rem;
   color: rgba(white, 0.5);
-
-.admin-link {
-  font-size: 10px;
-  color: rgba(white, 0.5);
-  text-decoration: none;
-  &:hover { color: #C9184A; }
-}
 
   @media (max-width: 600px) {
     flex-direction: column;
     text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .subscribe-form {
+    flex-direction: column;
     gap: 10px;
+
+    input {
+      border-radius: 5px;
+    }
+
+    button {
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-section {
+    text-align: center;
+
+    ul {
+      padding: 0;
+    }
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+.footer-section ul li a {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: $accent;
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }
