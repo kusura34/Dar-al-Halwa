@@ -13,10 +13,9 @@ $text: #2B2B2B;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 500px;
 
   &:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: $accent;
     box-shadow: 0 15px 30px rgba($berry, 0.08);
   }
@@ -36,17 +35,18 @@ $text: #2B2B2B;
 }
 
 .image-container {
-  display: flex;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1; // всегда квадрат
   background: $light-bg;
   border-radius: 18px;
   overflow: hidden;
   margin-bottom: 16px;
+  display: flex;
   justify-content: center;
+  align-items: center;
 
   img {
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
@@ -103,5 +103,26 @@ $text: #2B2B2B;
     &:hover {
       background: #590D22; // Твой доп. цвет
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .footer .price {
+    font-size: 1.1rem;
+  }
+
+  .buy-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
 }
