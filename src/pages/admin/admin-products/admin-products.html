@@ -21,8 +21,8 @@
         <td>{{ product.price }} ₽</td>
         <td>{{ product.category }}</td>
         <td>
-          <button class="btn-edit">✏️</button>
-          <button class="btn-delete" (click)="deleteProduct(product.id)">🗑️</button>
+          <button class="btn-edit" (click)="editProduct(product)"><img src="icons/edit.svg" alt=""></button>
+          <button class="btn-delete" (click)="deleteProduct(product.id)"><img src="icons/delete.svg" alt=""></button>
         </td>
       </tr>
     </tbody>

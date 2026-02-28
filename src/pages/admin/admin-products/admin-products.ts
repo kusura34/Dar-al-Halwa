@@ -3,6 +3,8 @@ import { ProductsService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog'
 import { ProductAddDialog } from '../product-add-dialog/product-add-dialog';
+import { Product } from '../../../shared/models/product-model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-products',
@@ -14,6 +16,7 @@ export class AdminProducts {
   private productsService = inject(ProductsService);
   products$ = this.productsService.getProducts();
   readonly dialog = inject(MatDialog);
+  private snackBar = inject(MatSnackBar)
 
   deleteProduct(id: string) {
     if (confirm('Удалить этот шедевр?')) {
@@ -31,6 +34,21 @@ export class AdminProducts {
       }
     });
   }
+
+  editProduct(product: Product) {
+  const dialogRef = this.dialog.open(ProductAddDialog, {
+    width: '500px',
+    data: product // Передаем объект продукта целиком
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.productsService.updateProduct(product.id, result)
+        .then(() => this.snackBar.open('Обновлено!', 'OK'))
+        .catch(() => this.snackBar.open('Ошибка обновления', 'Упс'));
+    }
+  });
+}
 
   async addTestProduct() {
     await this.productsService.addProduct({

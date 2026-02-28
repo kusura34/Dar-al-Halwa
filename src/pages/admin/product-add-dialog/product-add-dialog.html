@@ -1,6 +1,6 @@
 <div class="dialog-container">
   <header class="dialog-header">
-    <h2>Добавить новый <span>шедевр</span></h2>
+    <h2>{{ isEditMode ? 'Редактировать' : 'Добавить' }} <span>шедевр</span></h2>
     <button class="close-btn" (click)="onClose()">×</button>
   </header>
 
@@ -51,7 +51,7 @@
 
           <div class="upload-zone" (click)="fileInput.click()" [class.loading]="isUploading()">
             <ng-container *ngIf="!form.value.imageUrl; else preview">
-              <span class="icon"><img src="icons/camera.svg" alt=""></span>
+              <span class="icon"><img src="icons/camera.svg" alt="" /></span>
               <p>{{ isUploading() ? 'Загрузка...' : 'Нажмите, чтобы выбрать фото' }}</p>
             </ng-container>
 
@@ -73,7 +73,9 @@
 
     <footer class="dialog-footer">
       <button type="button" class="btn-cancel" (click)="onClose()">Отмена</button>
-      <button type="submit" class="btn-submit" [disabled]="form.invalid">Создать товар</button>
+      <button type="submit" class="btn-submit" [disabled]="form.invalid">
+        {{ isEditMode ? 'Сохранить изменения' : 'Создать товар' }}
+      </button>
     </footer>
   </form>
 </div>

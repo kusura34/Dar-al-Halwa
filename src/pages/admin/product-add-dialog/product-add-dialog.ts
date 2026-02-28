@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { NonNullableFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
@@ -48,17 +48,23 @@ export class ProductAddDialog {
   private fb = inject(NonNullableFormBuilder);
   private snackBar = inject(MatSnackBar);
   private dialogRef = inject(MatDialogRef<ProductAddDialog>);
+  public data = inject(MAT_DIALOG_DATA, { optional: true });
 
   public form = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(1)]],
-    description: ['', [Validators.required, Validators.minLength(1)]],
-    price: [null as number | null, [Validators.required]],
-    category: ['', [Validators.required]],
-    imageUrl: ['', [Validators.required]],
-    weight: ['', [Validators.required]],
-    isAvailable: [true, [Validators.required]],
-    createdAt: [new Date().toISOString(), [Validators.required]],
+    name: [this.data?.name || '', [Validators.required]],
+    description: [this.data?.description || '', [Validators.required]],
+    price: [this.data?.price || null, [Validators.required]],
+    category: [this.data?.category || '', [Validators.required]],
+    imageUrl: [this.data?.imageUrl || '', [Validators.required]],
+    weight: [this.data?.weight || '', [Validators.required]],
+    isAvailable: [this.data?.isAvailable ?? true, [Validators.required]],
+    createdAt: [this.data?.createdAt || new Date().toISOString()],
   });
+
+  // Меняем заголовок в зависимости от режима
+  get isEditMode(): boolean {
+    return !!this.data;
+  }
 
   public formSubmit(): void {
     if (this.form.valid) {

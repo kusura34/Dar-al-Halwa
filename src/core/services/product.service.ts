@@ -6,6 +6,7 @@ import {
   collectionData,
   deleteDoc,
   doc,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from '../../shared/models/product-model';
@@ -28,6 +29,11 @@ export class ProductsService {
       createdAt: new Date(),
     });
   }
+
+  updateProduct(id: string, product: any) {
+  const docRef = doc(this.firestore, `products/${id}`);
+  return updateDoc(docRef, product);
+}
 
   deleteProduct(id: string) {
     const docRef = doc(this.firestore, `products/${id}`);
