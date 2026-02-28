@@ -1,0 +1,79 @@
+<div class="dialog-container">
+  <header class="dialog-header">
+    <h2>Добавить новый <span>шедевр</span></h2>
+    <button class="close-btn" (click)="onClose()">×</button>
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="formSubmit()" class="product-form">
+    <div class="form-scroll-area">
+      <section class="form-section">
+        <div class="field">
+          <label>Название десерта</label>
+          <input type="text" formControlName="name" placeholder="Напр: Малиновый рассвет" />
+        </div>
+
+        <div class="field">
+          <label>Описание</label>
+          <textarea
+            formControlName="description"
+            rows="3"
+            placeholder="Расскажите о вкусе и начинке..."
+          ></textarea>
+        </div>
+      </section>
+
+      <section class="form-row">
+        <div class="field">
+          <label>Цена (₽)</label>
+          <input type="number" formControlName="price" placeholder="0" />
+        </div>
+        <div class="field">
+          <label>Вес (г)</label>
+          <input type="text" formControlName="weight" placeholder="500г" />
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="field">
+          <label>Категория</label>
+          <select formControlName="category">
+            <option value="" disabled selected>Выберите категорию</option>
+            <option value="bento">Бенто-торты</option>
+            <option value="classic">Классические торты</option>
+            <option value="sets">Наборы</option>
+          </select>
+        </div>
+
+        <div class="field upload-section">
+          <label>Фотография десерта</label>
+
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
+
+          <div class="upload-zone" (click)="fileInput.click()" [class.loading]="isUploading()">
+            <ng-container *ngIf="!form.value.imageUrl; else preview">
+              <span class="icon"><img src="icons/camera.svg" alt=""></span>
+              <p>{{ isUploading() ? 'Загрузка...' : 'Нажмите, чтобы выбрать фото' }}</p>
+            </ng-container>
+
+            <ng-template #preview>
+              <img [src]="form.value.imageUrl" class="preview-img" />
+              <div class="change-overlay">Изменить фото</div>
+            </ng-template>
+          </div>
+
+          <input type="hidden" formControlName="imageUrl" />
+        </div>
+      </section>
+
+      <div class="checkbox-field">
+        <input type="checkbox" id="available" formControlName="isAvailable" />
+        <label for="available">Доступен для заказа</label>
+      </div>
+    </div>
+
+    <footer class="dialog-footer">
+      <button type="button" class="btn-cancel" (click)="onClose()">Отмена</button>
+      <button type="submit" class="btn-submit" [disabled]="form.invalid">Создать товар</button>
+    </footer>
+  </form>
+</div>

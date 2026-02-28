@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProductList } from "../../shared/ui/product-list/product-list";
+import { ProductList } from '../../shared/ui/products/product-list/product-list';
 
 @Component({
   selector: 'app-home',

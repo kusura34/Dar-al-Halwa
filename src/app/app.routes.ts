@@ -4,9 +4,9 @@ import { AdminLayout } from '../layouts/admin-layout/admin-layout';
 import { Home } from '../pages/home/home';
 import { Dashboard } from '../pages/admin/dashboard/dashboard';
 import { AdminProducts } from '../pages/admin/admin-products/admin-products';
-import { ProductList } from '../shared/ui/product-list/product-list';
 import { authGuard } from '../core/guards/auth-guard';
 import { AdminLoginComponent } from '../pages/admin-login/admin-login';
+import { ProductList } from '../shared/ui/products/product-list/product-list';
 
 export const routes: Routes = [
 
