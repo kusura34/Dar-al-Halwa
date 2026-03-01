@@ -75,9 +75,7 @@ $text: #2B2B2B;
       color: $text;
 
       img {
-        border-radius: 8px;
         object-fit: cover;
-        background: $light-bg;
       }
     }
   }
@@ -114,5 +112,118 @@ $text: #2B2B2B;
   .admin-table {
     display: block;
     overflow-x: auto;
+  }
+}
+// Вариант таблицы с горизонтальной прокруткой на мобильных устройствах
+// @media (max-width: 768px) {
+
+//   .admin-products {
+//     padding: 16px;
+//   }
+
+//   .admin-table {
+//     display: block;
+//     width: 100%;
+//     overflow-x: auto;
+//     white-space: nowrap;
+//     border-radius: 12px;
+//   }
+
+//   .admin-table::-webkit-scrollbar {
+//     height: 6px;
+//   }
+
+//   .admin-table::-webkit-scrollbar-thumb {
+//     background: rgba(0,0,0,0.2);
+//     border-radius: 4px;
+//   }
+
+//   .header-actions {
+//     flex-direction: column;
+//     align-items: flex-start;
+//     gap: 15px;
+
+//     .btn-add {
+//       width: 100%;
+//       text-align: center;
+//     }
+//   }
+// }
+
+//Вариант для карточек вместо таблицы на мобильных устройствах
+@media (max-width: 768px) {
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table,
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-table tr {
+    position: relative;
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  }
+
+  /* 📸 Фото по центру */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .product-image {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+  }
+
+  /* Текстовые строки */
+  .admin-table td {
+    padding: 8px 0;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #777;
+  }
+
+  /* ✏ Кнопка редактирования — сверху справа */
+  .btn-edit {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* 🗑 Кнопка удаления — растянутая внизу */
+  .actions-cell {
+    margin-top: 20px;
+  }
+
+  .btn-delete {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: #fff1f0;
+    border: 1px solid #ff4d4f;
+    color: #ff4d4f;
   }
 }
