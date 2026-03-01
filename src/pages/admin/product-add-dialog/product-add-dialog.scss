@@ -83,7 +83,7 @@ $text: #2B2B2B;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin: 20px;
   
   input[type="checkbox"] {
     accent-color: $berry;
@@ -170,4 +170,71 @@ $text: #2B2B2B;
   }
 
   &:hover .change-overlay { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+
+  .dialog-container {
+    max-width: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .form-scroll-area {
+    flex: 1;
+    max-height: none;
+    padding-right: 0;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .dialog-footer {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 16px;
+    border-top: 1px solid #eee;
+  }
+
+  .dialog-footer button {
+    flex: 1;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .upload-zone {
+    height: 120px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .checkbox-field {
+    margin: 16px 0;
+    padding: 12px;
+    background: $light-bg;
+    border-radius: 10px;
+  }
+
 }

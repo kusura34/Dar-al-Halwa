@@ -1,5 +1,5 @@
 <div class="admin-container">
-  <aside class="sidebar">
+  <aside class="sidebar"  [class.open]="isSidebarOpen">
     <div class="sidebar-header">
       <span class="logo">Dar <span>al-Halva</span></span>
     </div>
@@ -21,6 +21,7 @@
 
   <main class="admin-content">
     <header class="content-header">
+      <button class="burger" (click)="toggleSidebar()">☰</button>
       <h1>Панель управления</h1>
       <div class="user-info">Администратор</div>
     </header>
@@ -29,4 +30,8 @@
       <router-outlet></router-outlet>
     </div>
   </main>
+</div>
+<div class="overlay"
+     *ngIf="isSidebarOpen"
+     (click)="toggleSidebar()">
 </div>
