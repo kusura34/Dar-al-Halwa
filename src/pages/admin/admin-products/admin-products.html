@@ -16,13 +16,19 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of products$ | async">
-        <td><img [src]="product.imageUrl" width="50"></td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.price }} ₽</td>
-        <td>{{ product.category }}</td>
-        <td>
-          <button class="btn-edit" (click)="editProduct(product)"><img src="icons/edit.svg" alt=""></button>
-          <button class="btn-delete" (click)="deleteProduct(product.id)"><img src="icons/delete.svg" alt=""></button>
+        <ul class="image-container">
+          <img class="product-image" [src]="product.imageUrl" width="50" />
+        </ul>
+        <td data-label="Название">{{ product.name }}</td>
+        <td data-label="Цена">{{ product.price }} ₽</td>
+        <td data-label="Категория">{{ product.category }}</td>
+        <td class="actions-cell">
+          <button class="btn-edit" (click)="editProduct(product)">
+            <img src="icons/edit.svg" alt="" />
+          </button>
+          <button class="btn-delete" (click)="deleteProduct(product.id)">
+            <img src="icons/delete.svg" alt="" />
+          </button>
         </td>
       </tr>
     </tbody>
