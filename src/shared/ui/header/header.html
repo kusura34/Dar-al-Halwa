@@ -22,9 +22,9 @@
       <button class="icon-btn" title="Поиск">
         <i class="search-icon"><img src="/icons/search.svg" alt="" /></i>
       </button>
-      <button class="cart-btn">
+      <button class="cart-btn" routerLink="cart">
         <span class="cart-icon"><img src="/icons/cart.svg" alt="" /></span>
-        <span class="cart-count">3</span>
+        <span class="cart-count">{{ selectedCount() }}</span>
       </button>
       <button class="burger-btn" (click)="toggleMenu()">☰</button>
       <button class="order-btn">Заказать звонок</button>

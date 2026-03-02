@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { CartService } from '../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,9 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Header {
   private router = inject(Router);
+  public cartService = inject(CartService);
+
+  selectedCount = this.cartService.selectedCount;
 
   isMenuOpen = false;
 

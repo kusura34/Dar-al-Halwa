@@ -1,0 +1,53 @@
+<div class="cart-container">
+  <h1>Ваша корзина</h1>
+
+  <div class="cart-layout" *ngIf="items().length > 0; else emptyCart">
+    <div class="items-list">
+      <div class="cart-item" *ngFor="let item of items()">
+        <label class="checkbox-container">
+          <input type="checkbox" (change)="toggle(item)" [checked]="item.selected">
+          <span class="checkmark"></span>
+        </label>
+        
+        <img [src]="item.imageUrl" [alt]="item.name" class="item-img">
+        
+        <div class="item-info">
+          <h3>{{ item.name }}</h3>
+          <p class="price">{{ item.price }} ₽</p>
+        </div>
+
+        <div class="quantity-controls">
+          <button (click)="decrease(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increase(item)">+</button>
+        </div>
+
+        <button class="remove-btn" (click)="remove(item.id)">
+          <span class="material-icons">delete_outline</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="order-summary">
+      <h3>Итого к заказу:</h3>
+      <div class="summary-row">
+        <span>Выбрано товаров:</span>
+        <span>{{ selectedCount() }}</span>
+      </div>
+      <div class="total-price">
+        <span>Сумма:</span>
+        <strong>{{ total() }} ₽</strong>
+      </div>
+      <button class="checkout-btn" [disabled]="selectedCount() === 0" (click)="openOrderDialog()">
+        Заказать сейчас
+      </button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-state">
+      <p>В корзине пока пусто...</p>
+      <button routerLink="/products">Перейти к тортам</button>
+    </div>
+  </ng-template>
+</div>

@@ -8,8 +8,8 @@ import {
   doc,
   updateDoc,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { Product } from '../../shared/models/product-model';
+import { map, Observable } from 'rxjs';
+import { Product } from '../../../shared/models/product-model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,19 @@ export class ProductsService {
 
   getProducts(): Observable<Product[]> {
     const productsRef = collection(this.firestore, 'products');
-    return collectionData(productsRef, { idField: 'id' }) as Observable<Product[]>;
+
+    return (collectionData(productsRef, { idField: 'id' }) as Observable<any[]>).pipe(
+      map((products) =>
+        products.map(
+          (product) =>
+            ({
+              ...product,
+              // Преобразуем Firebase Timestamp в JS Date, если поле существует
+              createdAt: product.createdAt?.toDate ? product.createdAt.toDate() : product.createdAt,
+            }) as Product,
+        ),
+      ),
+    );
   }
 
   async addProduct(product: Omit<Product, 'id'>) {
@@ -31,9 +43,9 @@ export class ProductsService {
   }
 
   updateProduct(id: string, product: any) {
-  const docRef = doc(this.firestore, `products/${id}`);
-  return updateDoc(docRef, product);
-}
+    const docRef = doc(this.firestore, `products/${id}`);
+    return updateDoc(docRef, product);
+  }
 
   deleteProduct(id: string) {
     const docRef = doc(this.firestore, `products/${id}`);

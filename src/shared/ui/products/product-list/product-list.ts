@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ProductCard } from "../product-card/product-card";
-import { ProductsService } from '../../../../core/services/product.service';
+import { ProductsService } from '../../../../core/services/product/product.service';
 import { Product } from '../../../models/product-model';
 
 @Component({
