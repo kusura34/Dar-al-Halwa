@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 80vw;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+
+    h1 {
+        font-size: 36px;
+        color: #333;
+    }
+}
+
+.under-construction {
+  display: block;
+  margin: 20px auto;
+  width: 600px;
+  opacity: 0.5;
+
+  img {
+    width: 500px;
+  }
+}
