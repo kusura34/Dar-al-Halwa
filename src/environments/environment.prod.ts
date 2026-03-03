@@ -8,5 +8,9 @@ export const environment = {
     messagingSenderId: "151841589100",
     appId: "1:151841589100:web:6ebdf229a53ac7cc11d549",
     measurementId: "G-YR6EJ8V52K"
+  },
+  telegram: {
+    botToken: "8308910037:AAGUrVsHQ6IxEN3btgSkCBxuhdQb79wEDno",
+    chatId: 6798447912
   }
 };

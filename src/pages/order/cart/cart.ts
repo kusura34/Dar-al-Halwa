@@ -39,13 +39,12 @@ export class Cart {
   }
 
   openOrderDialog() {
-    // Открываем окно оформления, передавая туда только выбранные товары
-    const selectedItems = this.items().filter(i => i.selected);
-    
-    this.dialog.open(OrderDialog, {
-      width: '500px',
-      data: { items: selectedItems, total: this.total() },
-      disableClose: true
-    });
-  }
+  const selectedItems = this.cartService.cartItems().filter(i => i.selected);
+  const total = this.cartService.totalAmount();
+
+  this.dialog.open(OrderDialog, {
+    data: { items: selectedItems, total: total },
+    width: '450px'
+  });
+}
 }

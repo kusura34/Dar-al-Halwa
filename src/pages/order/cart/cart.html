@@ -1,16 +1,17 @@
 <div class="cart-container">
-  <h1>Ваша корзина</h1>
+    <h1>Доставка осуществляется только по Казани.</h1>
+  <h2>Ваша корзина</h2>
 
   <div class="cart-layout" *ngIf="items().length > 0; else emptyCart">
     <div class="items-list">
       <div class="cart-item" *ngFor="let item of items()">
         <label class="checkbox-container">
-          <input type="checkbox" (change)="toggle(item)" [checked]="item.selected">
+          <input type="checkbox" (change)="toggle(item)" [checked]="item.selected" />
           <span class="checkmark"></span>
         </label>
-        
-        <img [src]="item.imageUrl" [alt]="item.name" class="item-img">
-        
+
+        <img [src]="item.imageUrl" [alt]="item.name" class="item-img" />
+
         <div class="item-info">
           <h3>{{ item.name }}</h3>
           <p class="price">{{ item.price }} ₽</p>

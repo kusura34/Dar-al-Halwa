@@ -1,6 +1,6 @@
 <header class="main-header">
   <div class="container">
-    <div class="logo">
+    <div class="logo" routerLink="">
       <span class="logo-icon">🍰</span>
       <span class="logo-text">Dar <span>al-Halva</span></span>
     </div>
@@ -12,7 +12,7 @@
             {{ isProductsPage ? 'Главная' : 'Каталог' }}
           </a>
         </li>
-        <li><a routerLink="/custom" routerLinkActive="active">Торт на заказ</a></li>
+        <li><a routerLinkActive="active">Торт на заказ</a></li>
         <li><a routerLink="/delivery" routerLinkActive="active">Доставка</a></li>
         <li><a routerLink="/reviews" routerLinkActive="active">Отзывы</a></li>
       </ul>

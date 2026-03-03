@@ -1,1 +1,43 @@
-<p>order-dialog works!</p>
+<div class="order-dialog">
+  <h2>Оформление заказа</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="field">
+      <label>Ваше имя</label>
+      <input type="text" formControlName="name" placeholder="Ваше имя" />
+      <small *ngIf="form.controls.name.touched && form.controls.name.invalid"> Введите имя </small>
+    </div>
+
+    <div class="field">
+      <label>Телефон</label>
+      <input
+        type="tel"
+        formControlName="phone"
+        placeholder="+7 (999) 999-99-99"
+      />
+      <small *ngIf="form.controls.phone.touched && form.controls.phone.invalid">
+        Введите корректный номер телефона, в противном случае мы не сможем с вами связаться
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Город</label>
+      <input type="text" formControlName="city" placeholder="Казань" />
+      <small *ngIf="form.controls.city.errors?.['notKazan']">
+        Доставка доступна только по Казани
+      </small>
+    </div>
+
+    <div class="field">
+      <label>Дата доставки</label>
+      <input type="date" formControlName="date" />
+      <small *ngIf="form.controls.date.errors?.['pastDate']">
+        Выберите дату не раньше завтра
+      </small>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="form.invalid" (click)="sendOrder()">
+      Подтвердить заказ
+    </button>
+  </form>
+</div>
