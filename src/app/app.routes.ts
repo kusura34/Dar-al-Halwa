@@ -7,6 +7,7 @@ import { AdminProducts } from '../pages/admin/admin-products/admin-products';
 import { authGuard } from '../core/guards/auth-guard';
 import { AdminLoginComponent } from '../pages/admin-login/admin-login';
 import { ProductList } from '../shared/ui/products/product-list/product-list';
+import { Cart } from '../pages/order/cart/cart';
 
 export const routes: Routes = [
 
@@ -16,7 +17,8 @@ export const routes: Routes = [
   children: [
     { path: '', component: Home },
     { path: 'products', component: ProductList },
-    // { path: 'cart', component: CartComponent },
+    { path: 'cart', component: Cart },
+    { path: 'reviews', loadComponent: () => import('../pages/reviews/reviews').then(m => m.Reviews) },
   ]
 },
 { path: 'login', component: AdminLoginComponent },

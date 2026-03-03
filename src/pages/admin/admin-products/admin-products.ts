@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { ProductsService } from '../../../core/services/product.service';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog'
 import { ProductAddDialog } from '../product-add-dialog/product-add-dialog';
 import { Product } from '../../../shared/models/product-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProductsService } from '../../../core/services/product/product.service';
 
 @Component({
   selector: 'app-admin-products',

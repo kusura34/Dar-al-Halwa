@@ -10,7 +10,7 @@
     
     <div class="footer">
       <span class="price">{{ product.price }} ₽</span>
-      <button class="buy-btn">
+      <button class="buy-btn" (click)="addToCart(product)">
         <span>+</span>
       </button>
     </div>

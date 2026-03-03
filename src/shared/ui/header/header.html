@@ -1,6 +1,6 @@
 <header class="main-header">
   <div class="container">
-    <div class="logo">
+    <div class="logo" routerLink="">
       <span class="logo-icon">🍰</span>
       <span class="logo-text">Dar <span>al-Halva</span></span>
     </div>
@@ -12,7 +12,7 @@
             {{ isProductsPage ? 'Главная' : 'Каталог' }}
           </a>
         </li>
-        <li><a routerLink="/custom" routerLinkActive="active">Торт на заказ</a></li>
+        <li><a routerLinkActive="active">Торт на заказ</a></li>
         <li><a routerLink="/delivery" routerLinkActive="active">Доставка</a></li>
         <li><a routerLink="/reviews" routerLinkActive="active">Отзывы</a></li>
       </ul>
@@ -22,9 +22,9 @@
       <button class="icon-btn" title="Поиск">
         <i class="search-icon"><img src="/icons/search.svg" alt="" /></i>
       </button>
-      <button class="cart-btn">
+      <button class="cart-btn" routerLink="cart">
         <span class="cart-icon"><img src="/icons/cart.svg" alt="" /></span>
-        <span class="cart-count">3</span>
+        <span class="cart-count">{{ selectedCount() }}</span>
       </button>
       <button class="burger-btn" (click)="toggleMenu()">☰</button>
       <button class="order-btn">Заказать звонок</button>
