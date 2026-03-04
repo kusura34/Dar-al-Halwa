@@ -216,6 +216,12 @@
 /* ===================== */
 
 @media (max-width: 900px) {
+  .cart-container {
+    h1 {
+      line-height: 1.1;
+    }
+  }
+
   .cart-layout {
     grid-template-columns: 1fr;
   }
@@ -251,8 +257,7 @@
   }
 }
 
-  @media (max-width: 600px) {
-
+@media (max-width: 600px) {
   .cart-item {
     display: grid;
     grid-template-columns: 90px 1fr;
@@ -267,5 +272,4 @@
   .quantity-controls {
     grid-column: 1 / 3;
   }
-
 }
