@@ -12,7 +12,7 @@
             {{ isProductsPage ? 'Главная' : 'Каталог' }}
           </a>
         </li>
-        <li><a routerLinkActive="active">Торт на заказ</a></li>
+        <li><a routerLinkActive="active"routerLink="/contacts">Контакты</a></li>
         <li><a routerLink="/delivery" routerLinkActive="active">Доставка</a></li>
         <li><a routerLink="/reviews" routerLinkActive="active">Отзывы</a></li>
       </ul>
@@ -27,7 +27,6 @@
         <span class="cart-count">{{ selectedCount() }}</span>
       </button>
       <button class="burger-btn" (click)="toggleMenu()">☰</button>
-      <button class="order-btn">Заказать звонок</button>
     </div>
   </div>
 </header>

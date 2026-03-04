@@ -19,6 +19,8 @@ export const routes: Routes = [
     { path: 'products', component: ProductList },
     { path: 'cart', component: Cart },
     { path: 'reviews', loadComponent: () => import('../pages/reviews/reviews').then(m => m.Reviews) },
+    { path: 'delivery', loadComponent: () => import('../pages/delivery/delivery').then(m => m.Delivery) },
+    { path: 'contacts', loadComponent: () => import('../pages/contacts/contacts').then(m => m.Contacts) }
   ]
 },
 { path: 'login', component: AdminLoginComponent },

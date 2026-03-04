@@ -1,0 +1,64 @@
+<div class="contacts-page">
+  <section class="header-section">
+    <h1>Связаться с нами</h1>
+    <p>Мы всегда рады обсудить дизайн вашего идеального торта или ответить на любые вопросы</p>
+  </section>
+
+  <div class="contacts-grid">
+    <a href="https://wa.me/79991234567?text=Здравствуйте!%20Хочу%20заказать%20торт" 
+       target="_blank" class="contact-card wa">
+      <div class="icon-box">
+        <i class="fab fa-whatsapp"></i>
+      </div>
+      <img [width]="30" src="icons/whatsapp.svg" alt="WhatsApp">
+      <h3>WhatsApp</h3>
+      <p>Написать в чат</p>
+    </a>
+
+    <a href="tel:+79991234567" class="contact-card phone">
+      <div class="icon-box">
+        <i class="fas fa-phone-alt"></i>
+      </div>
+      <img [width]="30" src="icons/phone.svg" alt="Телефон">
+      <h3>Телефон</h3>
+      <p>+7 (999) 123-45-67</p>
+    </a>
+
+    <a href="https://t.me/Tortiki97" target="_blank" class="contact-card tg">
+      <div class="icon-box">
+        <i class="fab fa-telegram-plane"></i>
+      </div>
+      <img [width]="30" src="icons/telegram.svg" alt="Telegram">
+      <h3>Telegram</h3>
+      <p>@Tortiki97</p>
+    </a>
+  </div>
+
+  <section class="delivery-map-section">
+    <div class="info-text">
+      <h2>Где мы находимся?</h2>
+      <div class="info-item">
+        <span class="material-icons">location_on</span>
+        <p>г. Казань, ул. , д. 10 (Самовывоз)</p>
+      </div>
+      <div class="info-item">
+        <span class="material-icons">schedule</span>
+        <p>Прием заказов: ежедневно с 09:00 до 20:00</p>
+      </div>
+      <div class="info-item">
+        <span class="material-icons">local_shipping</span>
+        <p>Доставка: только по Казани. При заказе от 5000₽ — бесплатно.</p>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <iframe 
+        src="https://yandex.ru/map-widget/v1/?ll=49.106414%2C55.796127&z=12" 
+        width="100%" 
+        height="350" 
+        frameborder="0" 
+        allowfullscreen="true">
+      </iframe>
+    </div>
+  </section>
+</div>

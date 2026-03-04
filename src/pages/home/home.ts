@@ -1,10 +1,11 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { ProductList } from '../../shared/ui/products/product-list/product-list';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ProductList],
+  imports: [CommonModule, ProductList, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -13,9 +14,9 @@ export class Home {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   categories = [
-    { name: 'Бенто-торты', icon: 'images/bento-cake.png', count: 12 },
-    { name: 'Классика', icon: 'images/classic-cake.png', count: 8 },
-    { name: 'Наборы', icon: 'images/cake-box.png', count: 5 },
+    { name: 'Капкейки', icon: 'images/chocolate-cupcakes.png', count: 12 },
+    { name: 'Классика', icon: 'images/classic-cake.jpg', count: 8 },
+    { name: 'Орехи со сгушенкой', icon: 'images/oreshki.png', count: 5 },
     { name: 'ПП-десерты', icon: 'images/cake-pp.png', count: 10 }
   ];
 
