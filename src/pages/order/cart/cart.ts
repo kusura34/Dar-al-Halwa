@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './cart.scss',
 })
 export class Cart {
- // Внедряем зависимости
+  // Внедряем зависимости
   public cartService = inject(CartService);
   private dialog = inject(MatDialog);
 
@@ -39,12 +39,26 @@ export class Cart {
   }
 
   openOrderDialog() {
-  const selectedItems = this.cartService.cartItems().filter(i => i.selected);
-  const total = this.cartService.totalAmount();
+    const selectedItems = this.cartService.cartItems().filter((i) => i.selected);
+    const total = this.cartService.totalAmount();
 
-  this.dialog.open(OrderDialog, {
-    data: { items: selectedItems, total: total },
-    width: '450px'
-  });
+    const dialogRef = this.dialog.open(OrderDialog, {
+      data: { items: selectedItems, total: total },
+      width: '450px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.completeOrder();
+      }
+    });
+  }
+
+  completeOrder() {
+  const selectedIds = this.items()
+    .filter(item => item.selected)
+    .map(item => item.id);
+
+  selectedIds.forEach(id => this.remove(id));
 }
 }

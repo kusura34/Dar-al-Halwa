@@ -17,9 +17,9 @@
       <div class="footer-section links">
         <h4>Кондитерская</h4>
         <ul>
-          <li><a routerLink="/catalog">Весь каталог</a></li>
-          <li><a routerLink="/bento">Бенто-торты</a></li>
-          <li><a routerLink="/wedding">Свадебные торты</a></li>
+          <li><a routerLink="/products">Каталог</a></li>
+          <li><a routerLink="/bento">Капкейки</a></li>
+          <li><a routerLink="/wedding">Классические торты</a></li>
           <li><a routerLink="/candy-bar">Кэнди-бар</a></li>
         </ul>
       </div>
@@ -28,19 +28,9 @@
         <h4>Покупателям</h4>
         <ul>
           <li><a routerLink="/delivery">Доставка и оплата</a></li>
-          <li><a routerLink="/faq">Вопросы и ответы</a></li>
           <li><a routerLink="/contacts">Контакты</a></li>
           <li><a routerLink="/policy">Приватность</a></li>
         </ul>
-      </div>
-
-      <div class="footer-section newsletter">
-        <h4>Сладкие новости</h4>
-        <p>Подпишитесь, чтобы получать скидки на праздники.</p>
-        <form class="subscribe-form" (submit)="$event.preventDefault()">
-          <input type="email" placeholder="Ваш e-mail" />
-          <button type="submit">OK</button>
-        </form>
       </div>
     </div>
 
