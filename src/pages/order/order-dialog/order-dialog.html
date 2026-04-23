@@ -13,7 +13,9 @@
       <input
         type="tel"
         formControlName="phone"
-        placeholder="+7 (999) 999-99-99"
+        [showMaskTyped]="true"
+        mask="+0(000)000-00-00"
+        placeholder="Номер телефона"
       />
       <small *ngIf="form.controls.phone.touched && form.controls.phone.invalid">
         Введите корректный номер телефона, в противном случае мы не сможем с вами связаться
@@ -22,7 +24,7 @@
 
     <div class="field">
       <label>Город</label>
-      <input type="text" formControlName="city" placeholder="Казань" />
+      <input type="text" formControlName="city" placeholder="Казань" value="Казань" />
       <small *ngIf="form.controls.city.errors?.['notKazan']">
         Доставка доступна только по Казани
       </small>
@@ -39,5 +41,6 @@
     <button type="submit" class="submit-btn" [disabled]="form.invalid" (click)="sendOrder()">
       Подтвердить заказ
     </button>
+    <button (click)="close()" class="submit-btn">Отмена</button>
   </form>
 </div>
