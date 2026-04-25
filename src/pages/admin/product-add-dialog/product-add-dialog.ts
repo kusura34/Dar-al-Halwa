@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
+import { CategoryService } from '../../../core/services/category/category.service';
 
 @Component({
   selector: 'app-product-add-dialog',
@@ -14,6 +15,8 @@ import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage
 })
 export class ProductAddDialog {
   private storage = inject(Storage);
+  private categoryService = inject(CategoryService);
+  readonly categories$ = this.categoryService.getCategories();
   public isUploading = signal(false); // Состояние загрузки для индикатора
 
   // Метод для выбора и загрузки файла

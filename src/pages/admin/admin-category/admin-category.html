@@ -1,0 +1,66 @@
+<div class="admin-container">
+  <header>
+    <h2>Управление категориями</h2>
+  </header>
+
+  <section class="add-category-section">
+    <form class="input-group" [formGroup]="form" (ngSubmit)="add()">
+      <div class="field upload-section">
+        <label>Фото категории</label>
+
+        <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" hidden />
+
+        <div class="upload-zone" (click)="fileInput.click()" [class.loading]="isUploading()">
+          <ng-container *ngIf="!form.value.imageUrl; else preview">
+            <span class="icon"><img src="icons/camera.svg" alt="" /></span>
+            <p>{{ isUploading() ? 'Загрузка...' : 'Нажмите, чтобы выбрать фото' }}</p>
+          </ng-container>
+
+          <ng-template #preview>
+            <img [src]="form.value.imageUrl" class="preview-img" />
+            <div class="change-overlay">Изменить фото</div>
+          </ng-template>
+        </div>
+
+        <input type="hidden" formControlName="imageUrl" />
+      </div>
+
+      <input
+        type="text"
+        placeholder="Название новой категории (например, Моти)"
+        formControlName="name"
+      />
+
+      <button class="btn-add" type="submit" [disabled]="form.invalid || isUploading() || isSubmitting()">
+        {{ isSubmitting() ? 'Сохранение...' : 'Добавить' }}
+      </button>
+    </form>
+  </section>
+
+  <section class="categories-list">
+    <div class="table-wrap">
+      <table>
+      <thead>
+        <tr>
+          <th>Фото</th>
+          <th>Название</th>
+          <th>Slug (для фильтра)</th>
+          <th class="actions">Действия</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cat of categories$ | async">
+          <td><img [src]="cat.icon" [alt]="cat.name" class="preview-img" /></td>
+          <td>{{ cat.name }}</td>
+          <td><code>{{ cat.slug }}</code></td>
+          <td class="actions">
+            <button class="btn-delete" (click)="delete(cat.id)">
+              Удалить
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </section>
+</div>

@@ -17,27 +17,12 @@
   </div>
 </section>
 
+<app-product-categories></app-product-categories>
+
 <div class="delivery-info">
   <span class="material-icons">info</span>
   <p>Мы принимаем заказы с доставкой <strong>только по Казани</strong>. Если вы из другого города, свяжитесь с нами для уточнения возможности самовывоза.</p>
 </div>
-
-<section class="categories" #categoriesSection>
-  <div class="section-header">
-    <h2>Популярные категории</h2>
-    <a routerLink="/catalog" class="view-all">Смотреть всё →</a>
-  </div>
-
-  <div class="category-grid">
-    <div class="cat-card" *ngFor="let cat of categories">
-      <div class="cat-icon">
-        <img [src]="cat.icon" [alt]="cat.name" class="category-img" />
-      </div>
-      <h3>{{ cat.name }}</h3>
-      <p>{{ cat.count }} товаров</p>
-    </div>
-  </div>
-</section>
 
 <section>
   <app-product-list></app-product-list>

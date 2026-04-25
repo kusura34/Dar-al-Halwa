@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { ProductCard } from "../product-card/product-card";
+import { ProductCard } from '../product-card/product-card';
 import { ProductsService } from '../../../../core/services/product/product.service';
 import { Product } from '../../../models/product-model';
+import { Category } from '../../../models/category-model';
 
 @Component({
   selector: 'app-product-list',
@@ -14,9 +15,11 @@ import { Product } from '../../../models/product-model';
 export class ProductList {
   @Input() product!: Product;
 
-  products$: Observable<Product[]>;
+  private productService: ProductsService = inject(ProductsService);
+  filteredProducts$: Observable<Product[]> = this.productService.filteredProducts$;
+  selectedCategory$ = this.productService.selectedCategory$;
 
-  constructor(private productsService: ProductsService) {
-    this.products$ = this.productsService.getProducts();
+  filterByCategory(category: Category['slug']) {
+    this.productService.filterByCategory(category);
   }
 }
