@@ -2,6 +2,9 @@
   <aside class="sidebar"  [class.open]="isSidebarOpen">
     <div class="sidebar-header">
       <span class="logo">Dar <span>al-Halva</span></span>
+      <button class="nav-item" style="background: none; border: 0; align-items: center;" (click)="toggleSidebar()">
+        <img src="/icons/close.svg" alt="Close" />
+      </button>
     </div>
     <div class="navigation">
       <nav class="sidebar-nav">
@@ -10,6 +13,9 @@
         </a>
         <a routerLink="products" class="nav-item">
           <i class="icon"><img style="width: 20px" src="cakeicon.svg" alt="" /></i> Товары
+        </a>
+        <a routerLink="categories" class="nav-item">
+          <i class="icon"><img src="icons/category.svg" alt="" /></i> Категории
         </a>
         <a routerLink="/" class="nav-item back-site">
           <i class="icon"><img src="icons/home.svg" alt="" /></i> На сайт

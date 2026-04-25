@@ -1,1 +1,42 @@
-<p>dashboard works!</p>
+<section class="dashboard">
+  <header class="dashboard-header">
+    <h2>Обзор магазина</h2>
+    <p>Актуальная сводка по товарам и категориям.</p>
+  </header>
+
+  <div class="stats-grid" *ngIf="(stats$ | async) as stats">
+    <article class="stat-card">
+      <p>Товаров всего</p>
+      <h3>{{ stats.totalProducts }}</h3>
+    </article>
+
+    <article class="stat-card">
+      <p>В наличии</p>
+      <h3>{{ stats.availableCount }}</h3>
+    </article>
+
+    <article class="stat-card">
+      <p>Категорий</p>
+      <h3>{{ (categories$ | async)?.length || 0 }}</h3>
+    </article>
+
+    <article class="stat-card">
+      <p>Сумма цен товаров</p>
+      <h3>{{ stats.totalValue }} ₽</h3>
+    </article>
+  </div>
+
+  <section class="latest-block">
+    <h3>Последние добавленные товары</h3>
+    <div class="latest-list">
+      <article class="latest-item" *ngFor="let product of latestProducts$ | async">
+        <img [src]="product.imageUrl" [alt]="product.name" />
+        <div>
+          <h4>{{ product.name }}</h4>
+          <p>{{ product.category }} · {{ product.price }} ₽</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</section>
+

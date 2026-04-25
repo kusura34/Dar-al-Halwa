@@ -37,10 +37,10 @@
         <div class="field">
           <label>Категория</label>
           <select formControlName="category">
-            <option value="" disabled selected>Выберите категорию</option>
-            <option value="bento">Бенто-торты</option>
-            <option value="classic">Классические торты</option>
-            <option value="sets">Наборы</option>
+            <option value="" disabled>Выберите категорию</option>
+            <option *ngFor="let category of categories$ | async" [value]="category.slug">
+              {{ category.name }}
+            </option>
           </select>
         </div>
 

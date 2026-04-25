@@ -1,0 +1,31 @@
+<section class="categories" #categoriesSection>
+  <div class="section-header">
+    <h2>Популярные категории</h2>
+    <div class="section-actions">
+      <button
+        *ngIf="(selectedCategory$ | async) !== 'all'"
+        type="button"
+        class="view-all"
+        (click)="filterByCategory('all')"
+      >
+        Сбросить фильтр
+      </button>
+      <a *ngIf="!isCategoriesPage" routerLink="/categories" class="view-all">Смотреть всё →</a>
+    </div>
+  </div>
+
+  <div class="category-grid">
+    <button
+      type="button"
+      class="cat-card"
+      *ngFor="let cat of displayedCategories$ | async"
+      (click)="filterByCategory(cat.slug)"
+      [class.active]="(selectedCategory$ | async) === cat.slug"
+    >
+      <div class="cat-icon">
+        <img [src]="cat.icon" [alt]="cat.name" class="preview-img" />
+      </div>
+      <h3>{{ cat.name }}</h3>
+    </button>
+  </div>
+</section>

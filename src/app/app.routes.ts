@@ -8,6 +8,7 @@ import { authGuard } from '../core/guards/auth-guard';
 import { AdminLoginComponent } from '../pages/admin-login/admin-login';
 import { ProductList } from '../shared/ui/products/product-list/product-list';
 import { Cart } from '../pages/order/cart/cart';
+import { AdminCategory } from '../pages/admin/admin-category/admin-category';
 
 export const routes: Routes = [
 
@@ -20,7 +21,8 @@ export const routes: Routes = [
     { path: 'cart', component: Cart },
     { path: 'reviews', loadComponent: () => import('../pages/reviews/reviews').then(m => m.Reviews) },
     { path: 'delivery', loadComponent: () => import('../pages/delivery/delivery').then(m => m.Delivery) },
-    { path: 'contacts', loadComponent: () => import('../pages/contacts/contacts').then(m => m.Contacts) }
+    { path: 'contacts', loadComponent: () => import('../pages/contacts/contacts').then(m => m.Contacts) },
+    { path: 'categories', loadComponent: () => import('../shared/ui/products/product-categories/product-categories').then(m => m.ProductCategories) },
   ]
 },
 { path: 'login', component: AdminLoginComponent },
@@ -31,6 +33,8 @@ export const routes: Routes = [
   children: [
     { path: 'admin', component: Dashboard },
     { path: 'products', component: AdminProducts },
+    { path: 'categories', component: AdminCategory },
+    { path: '', component: Dashboard },
   ]
 }
 ];
