@@ -12,30 +12,4 @@ import { ProductCategories } from "../../shared/ui/products/product-categories/p
 })
 export class Home {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
-
-  categories = [
-    { name: 'Капкейки', icon: 'images/chocolate-cupcakes.png', count: 12 },
-    { name: 'Классика', icon: 'images/classic-cake.jpg', count: 8 },
-    { name: 'Орехи со сгушенкой', icon: 'images/oreshki.png', count: 5 },
-    { name: 'ПП-десерты', icon: 'images/cake-pp.png', count: 10 }
-  ];
-
-  @ViewChild('categoriesSection') section!: ElementRef;
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            this.section.nativeElement.classList.add('show');
-          }
-        },
-        { threshold: 0.2 }
-      );
-
-      observer.observe(this.section.nativeElement);
-    }
-  }
 }
