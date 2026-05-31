@@ -6,12 +6,13 @@
 
   <div class="content">
     <h3 class="title">{{ product.name }}</h3>
-    <p class="description">{{ product.description }}</p>
+    <p class="description">{{ product.description | limitLength }}</p>
     
     <div class="footer">
       <span class="price">{{ product.price }} ₽</span>
+      <span class="weight">{{ product.weight }} гр</span>
       <button class="buy-btn" (click)="addToCart(product)">
-        <span>+</span>
+        <img style="width: 40%;" src="icons/cart-white.svg"/>
       </button>
     </div>
   </div>
