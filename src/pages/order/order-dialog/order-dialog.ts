@@ -45,7 +45,13 @@ export class OrderDialog {
 
   kazanValidator(control: AbstractControl) {
     const value = control.value?.toLowerCase().trim();
-    return value === 'казань' ? null : { notKazan: true };
+
+    // Проверяем, есть ли подстрока "казань" в поле ввода
+    if (value && value.includes('казань')) {
+      return null; // Всё ок
+    }
+
+    return { notKazan: true }; // Ошибка, если слова "казань" нет
   }
 
   dateValidator(control: AbstractControl) {
@@ -67,6 +73,6 @@ export class OrderDialog {
   }
 
   close() {
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
 }
