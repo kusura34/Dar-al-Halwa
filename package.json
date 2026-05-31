@@ -9,6 +9,9 @@
     "test": "ng test",
     "serve:ssr:dar_al-halwa": "node dist/dar_al-halwa/server/server.mjs"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
