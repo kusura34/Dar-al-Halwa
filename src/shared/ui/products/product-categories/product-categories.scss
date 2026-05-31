@@ -6,9 +6,12 @@ $dark-berry: #590d22;
 
 .categories {
   padding: 80px 5%;
-  opacity: 0;
-  transform: translateY(40px);
   transition: all 0.8s ease;
+
+  // Адаптируем общие отступы секции для мобилок
+  @media (max-width: 768px) {
+    padding: 40px 16px;
+  }
 
   .section-header {
     display: flex;
@@ -16,12 +19,17 @@ $dark-berry: #590d22;
     align-items: flex-end;
     margin-bottom: 40px;
 
+    @media (max-width: 480px) {
+      margin-bottom: 24px;
+    }
+
     h2 {
       font-size: clamp(1.5rem, 3vw, 2.5rem);
       color: $dark-berry;
       margin: 0;
       font-family: Playfair Display;
     }
+    
     .view-all {
       color: $berry;
       text-decoration: none;
@@ -30,6 +38,7 @@ $dark-berry: #590d22;
       border: none;
       cursor: pointer;
       font-size: 0.95rem;
+      white-space: nowrap; // Чтобы текст кнопки не переносился на две строки
     }
 
     .section-actions {
@@ -43,6 +52,12 @@ $dark-berry: #590d22;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+
+    // Магия для мобилок: жестко делаем 2 колонки вместо одной огромной
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px; // Сужаем отступы между карточками
+    }
   }
 
   .cat-card {
@@ -54,6 +69,12 @@ $dark-berry: #590d22;
     border: 1px solid $light-bg;
     transition: 0.3s;
     cursor: pointer;
+
+    // Уменьшаем внутренние отступы карточки на мобильных устройствах
+    @media (max-width: 480px) {
+      padding: 16px 12px;
+      border-radius: 16px;
+    }
 
     &:hover {
       border-color: $accent;
@@ -67,29 +88,50 @@ $dark-berry: #590d22;
     }
 
     .cat-icon {
-      width: 150px; // Настрой размер под себя
-      height: 100px;
+      width: 80%;
+      height: 80%;
       margin: 0 auto 15px;
       display: flex;
       align-items: center;
       justify-content: center;
 
+      @media (max-width: 480px) {
+        // Вместо фиксированной высоты задаем пропорции, чтобы контейнер подстраивался сам
+        height: auto; 
+        aspect-ratio: 1.5 / 1; // Делает контейнер аккуратным прямоугольником 
+        width: 100%; // Позволяем картинке занять оптимальную ширину на мобилке
+        margin-bottom: 8px;
+      }
+
       .category-img {
         width: 100%;
         height: 100%;
-        object-fit: contain; // Чтобы картинка не деформировалась
+        object-fit: contain; // Картинка будет масштабироваться без искажения пропорций
       }
     }
+    
     h3 {
       margin: 0;
       color: $text;
+
+      @media (max-width: 480px) {
+        font-size: 0.95rem; // Чуть уменьшаем заголовки категорий
+      }
     }
+    
     p {
       color: #888;
       font-size: 0.9rem;
+
+      @media (max-width: 480px) {
+        font-size: 0.75rem; // Подписи (например, количество товаров) делаем компактнее
+        margin: 4px 0 0 0;
+      }
     }
   }
 }
+
+// --- Блок анимаций (остается без изменений) ---
 
 .categories.show {
   opacity: 1;
@@ -97,9 +139,9 @@ $dark-berry: #590d22;
 }
 
 .cat-card {
-  opacity: 0;
-  transform: translateY(30px);
   transition: all 0.6s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .categories.show .cat-card {
@@ -113,22 +155,16 @@ $dark-berry: #590d22;
 .categories.show .cat-card:nth-child(4) { transition-delay: 0.4s; }
 .categories.show .cat-card:nth-child(5) { transition-delay: 0.5s; }
 
-.cat-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
+// Эффекты ховера включаем только для десктопов, чтобы на мобилках при тапе ничего не ломалось
+@media (min-width: 1024px) {
+  .cat-card:hover {
+    transform: rotateX(4deg) rotateY(-4deg) translateY(-8px) scale(1.02);
+  }
 
-.cat-card:hover .category-img {
-  transform: scale(1.1) rotate(3deg);
-  transition: 0.4s ease;
-}
-
-.cat-card {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-.cat-card:hover {
-  transform: rotateX(4deg) rotateY(-4deg) translateY(-8px);
+  .cat-card:hover .category-img {
+    transform: scale(1.1) rotate(3deg);
+    transition: 0.4s ease;
+  }
 }
 
 .category-img {
@@ -136,9 +172,8 @@ $dark-berry: #590d22;
 }
 
 .preview-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        object-fit: cover;
-        display: block;
-      }
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: block;
+}

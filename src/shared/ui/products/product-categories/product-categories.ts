@@ -12,7 +12,7 @@ import { ProductsService } from '../../../../core/services/product/product.servi
   templateUrl: './product-categories.html',
   styleUrl: './product-categories.scss',
 })
-export class ProductCategories implements AfterViewInit {
+export class ProductCategories {
   @Input() category!: Category;
 
   @ViewChild('categoriesSection') categoriesSection!: ElementRef;
@@ -44,21 +44,5 @@ export class ProductCategories implements AfterViewInit {
     if (this.router.url.startsWith('/categories')) {
       this.router.navigateByUrl('/products');
     }
-  }
-
-  // categories = [
-  //   { name: 'Капкейки', icon: 'images/chocolate-cupcakes.png', count: 12 },
-  //   { name: 'Классика', icon: 'images/classic-cake.jpg', count: 8 },
-  //   { name: 'Орехи со сгущенкой', icon: 'images/oreshki.png', count: 5 },
-  //   { name: 'ПП-десерты', icon: 'images/cake-pp.png', count: 10 },
-  //   { name: 'Пирожные', icon: 'images/pies.png', count: 7 },
-  // ];
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      if (this.categoriesSection?.nativeElement) {
-        this.categoriesSection.nativeElement.classList.add('show');
-      }
-    }, 100);
   }
 }

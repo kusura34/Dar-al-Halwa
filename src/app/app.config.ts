@@ -9,6 +9,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
 import { provideNgxMask } from 'ngx-mask';
+import { provideHttpClient } from '@angular/common/http';
 
 
 export const appConfig: ApplicationConfig = {
@@ -20,5 +21,6 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideNgxMask(),
+    provideHttpClient()
   ]
 };

@@ -2,13 +2,13 @@
   <aside class="sidebar"  [class.open]="isSidebarOpen">
     <div class="sidebar-header">
       <span class="logo">Dar <span>al-Halva</span></span>
-      <button class="nav-item" style="background: none; border: 0; align-items: center;" (click)="toggleSidebar()">
+      <button *ngIf="isSidebarOpen" class="nav-item" style="background: none; border: 0; align-items: center;" (click)="toggleSidebar()">
         <img src="/icons/close.svg" alt="Close" />
       </button>
     </div>
     <div class="navigation">
       <nav class="sidebar-nav">
-        <a class="nav-item">
+        <a routerLink="." class="nav-item">
           <i class="icon"><img src="icons/analytics.svg" alt="" /></i> Дашборд
         </a>
         <a routerLink="products" class="nav-item">

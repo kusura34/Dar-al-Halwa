@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../../../models/product-model';
 import { CartService } from '../../../../core/services/cart/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LimitationString } from '../../../pipes/text-limitation';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CommonModule],
+  imports: [CommonModule, LimitationString],
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })

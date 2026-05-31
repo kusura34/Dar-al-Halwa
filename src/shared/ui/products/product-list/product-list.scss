@@ -3,5 +3,16 @@
   gap: 20px;
   width: min(1400px, 92vw);
   margin: 0 auto;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(240px, 30vw, 320px), 1fr));
+  
+  // Дефолтная сетка для десктопов и планшетов
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+  // Магия для мобильных экранов (меньше 600px)
+  @media (max-width: 600px) {
+    gap: 12px; // Уменьшаем отступы между карточками, чтобы сэкономить место
+    width: 95vw; // Немного расширяем общую сетку на мобилках
+    
+    // Строго две колонки: делят экран пополам (минус gap)
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
